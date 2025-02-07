@@ -1,0 +1,22 @@
+
+ext {
+    springProfiles = "dev" + springProfiles
+}
+
+bootRun {
+    args = ["--spring.profiles.active=${springProfiles}"]
+}
+
+processResources {
+    inputs.property('springProfiles', springProfiles)
+
+    def replaceSpringProfiles = { filePattern ->
+        filesMatching(filePattern) {
+            filter {
+                it.replace("#spring.profiles.active#", springProfiles)
+            }
+        }
+    }
+    replaceSpringProfiles("**/application.properties")
+}
+
