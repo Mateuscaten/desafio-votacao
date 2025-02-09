@@ -25,6 +25,7 @@ public class PautaDto {
 
     private Integer tempo;
 
+
     public static PautaDto converterEntidade(Pauta pauta) {
         if (pauta == null) {
             return null;

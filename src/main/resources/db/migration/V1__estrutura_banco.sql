@@ -28,4 +28,3 @@ create table voto_sessao (
 
 create index fk_pauta_sessao_pauta on pauta_sessao(pauta_id);
 create index fk_voto_sessao on voto_sessao(sessao_id);
-
